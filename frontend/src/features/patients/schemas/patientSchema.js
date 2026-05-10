@@ -11,6 +11,7 @@ export const patientSchema = z
     gender: z.enum(['Male', 'Female', 'Other']),
     phone: z.string().min(5, 'Phone is required'),
     address: z.string().optional(),
+    wardNumber: z.string().optional(),
     district: z.string().optional(),
     province: z.string().optional(),
     occupation: z.string().optional(),

@@ -1,9 +1,10 @@
 const { Patient } = require('./patient.model');
 
 const listPatients = async (filter, options) => {
+  const sort = options.sort || { createdAt: -1 };
   const [items, total] = await Promise.all([
     Patient.find(filter)
-      .sort({ createdAt: -1 })
+      .sort(sort)
       .skip(options.skip)
       .limit(options.limit),
     Patient.countDocuments(filter),

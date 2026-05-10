@@ -1,4 +1,5 @@
 const { z } = require('zod');
+const { VISIT_TYPES } = require('../../constants/enums');
 
 const objectIdSchema = z.string().regex(/^[0-9a-fA-F]{24}$/);
 
@@ -6,7 +7,7 @@ const createVisitSchema = z.object({
   body: z.object({
     patient: objectIdSchema,
     visitDate: z.string().datetime(),
-    visitType: z.enum(['New', 'Follow-up', 'Emergency']),
+    visitType: z.enum(VISIT_TYPES),
     department: z.string().optional(),
     assignedDoctor: objectIdSchema.optional(),
     chiefComplaint: z.string().min(2),
@@ -21,7 +22,7 @@ const createVisitSchema = z.object({
 const updateVisitSchema = z.object({
   body: z.object({
     visitDate: z.string().datetime().optional(),
-    visitType: z.enum(['New', 'Follow-up', 'Emergency']).optional(),
+    visitType: z.enum(VISIT_TYPES).optional(),
     department: z.string().optional(),
     assignedDoctor: objectIdSchema.optional(),
     chiefComplaint: z.string().min(2).optional(),

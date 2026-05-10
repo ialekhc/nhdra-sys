@@ -224,7 +224,7 @@ export const buildPatientReportPrintHtml = ({ report, snapshotId, savedAt }) => 
     </head>
     <body>
       <div class="header">
-        <h1>Cardio-Diabetic Patient Overall Report</h1>
+        <h1>HDCL Patient Overall Report</h1>
         <div class="subtle">Snapshot ID: ${safeText(snapshotId)} | Saved: ${safeText(formatDateValue(savedAt))}</div>
         <div class="meta-grid">
           <div class="meta-card"><span class="label">Patient ID</span>${safeText(patient.patientId)}</div>
@@ -232,6 +232,7 @@ export const buildPatientReportPrintHtml = ({ report, snapshotId, savedAt }) => 
           <div class="meta-card"><span class="label">Age</span>${safeText(patient.age)}</div>
           <div class="meta-card"><span class="label">Gender</span>${safeText(patient.gender)}</div>
           <div class="meta-card"><span class="label">Phone</span>${safeText(patient.phone)}</div>
+          <div class="meta-card"><span class="label">Ward No</span>${safeText(patient.wardNumber)}</div>
           <div class="meta-card"><span class="label">District</span>${safeText(patient.district)}</div>
           <div class="meta-card"><span class="label">Province</span>${safeText(patient.province)}</div>
           <div class="meta-card"><span class="label">Research ID</span>${safeText(patient.researchId)}</div>

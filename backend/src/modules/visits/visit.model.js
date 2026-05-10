@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
+const { VISIT_TYPES } = require('../../constants/enums');
 
 const visitSchema = new mongoose.Schema(
   {
     visitId: { type: String, unique: true, sparse: true },
     patient: { type: mongoose.Schema.Types.ObjectId, ref: 'Patient', required: true, index: true },
     visitDate: { type: Date, required: true, index: true },
-    visitType: { type: String, enum: ['New', 'Follow-up', 'Emergency'], required: true },
+    visitType: { type: String, enum: VISIT_TYPES, required: true },
     department: { type: String, trim: true },
     assignedDoctor: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     chiefComplaint: { type: String, required: true, trim: true },

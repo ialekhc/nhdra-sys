@@ -12,9 +12,22 @@ const {
   deletePatientById,
 } = require('./patient.repository');
 
+const resolvePatientSort = (query) => {
+  const allowedSortFields = ['createdAt', 'patientId', 'phone', 'fullName'];
+  const sortBy = allowedSortFields.includes(query.sortBy) ? query.sortBy : 'createdAt';
+  const sortOrder = query.sortOrder === 'asc' ? 1 : -1;
+
+  if (sortBy === 'createdAt') {
+    return { createdAt: sortOrder };
+  }
+
+  return { [sortBy]: sortOrder, createdAt: -1 };
+};
+
 const getPatientsService = async (query) => {
   const { page, limit, skip } = getPagination(query);
   const filter = {};
+  const sort = resolvePatientSort(query);
 
   if (query.status) filter.status = query.status;
 
@@ -28,7 +41,7 @@ const getPatientsService = async (query) => {
     ];
   }
 
-  const { items, total } = await listPatients(filter, { limit, skip });
+  const { items, total } = await listPatients(filter, { limit, skip, sort });
 
   return {
     patients: items,

@@ -29,6 +29,7 @@ export const PatientForm = ({
       gender: 'Male',
       phone: '',
       address: '',
+      wardNumber: '',
       district: '',
       province: '',
       treatmentConsent: false,
@@ -107,6 +108,12 @@ export const PatientForm = ({
             ))}
           </Select>
           {errors.district ? <p className="mt-1 text-xs text-red-600">{errors.district.message}</p> : null}
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-medium">Ward Number</label>
+          <Input {...register('wardNumber')} placeholder="e.g. 5" />
+          {errors.wardNumber ? <p className="mt-1 text-xs text-red-600">{errors.wardNumber.message}</p> : null}
         </div>
 
         <div className="md:col-span-2">

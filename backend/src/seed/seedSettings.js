@@ -9,7 +9,7 @@ const defaultSettings = [
   },
   {
     key: 'visitTypes',
-    value: ['New', 'Follow-up', 'Emergency'],
+    value: ['New', 'Follow-up', 'Camp', 'Charity'],
     description: 'Visit types',
   },
   {

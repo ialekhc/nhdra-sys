@@ -5,6 +5,15 @@ import { Input } from '../../../shared/components/ui/Input';
 import { Select } from '../../../shared/components/ui/Select';
 import { Textarea } from '../../../shared/components/ui/Textarea';
 import { Button } from '../../../shared/components/ui/Button';
+import { VISIT_TYPES } from '../../../constants/enums';
+
+const VISIT_TYPE_LABELS = {
+  New: 'New Patient',
+  'Follow-up': 'Follow-up',
+  Camp: 'Camp',
+  Charity: 'Charity',
+  Emergency: 'Emergency',
+};
 
 export const VisitForm = ({
   patientId,
@@ -46,9 +55,11 @@ export const VisitForm = ({
         <div>
           <label className="mb-1 block text-sm font-medium">Visit Type</label>
           <Select {...register('visitType')}>
-            <option value="New">New</option>
-            <option value="Follow-up">Follow-up</option>
-            <option value="Emergency">Emergency</option>
+            {VISIT_TYPES.map((type) => (
+              <option key={type} value={type}>
+                {VISIT_TYPE_LABELS[type] || type}
+              </option>
+            ))}
           </Select>
         </div>
       </div>

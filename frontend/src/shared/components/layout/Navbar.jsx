@@ -8,7 +8,7 @@ export const Navbar = () => {
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-semibold text-slate-900">Hospital Dashboard</h2>
-          <p className="text-xs text-slate-500">Cardio-Diabetic Patient Records</p>
+          <p className="text-xs text-slate-500">HDCL Patient Records</p>
         </div>
         <div className="text-right">
           <p className="text-sm font-semibold text-slate-800">{user?.name || 'User'}</p>

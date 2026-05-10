@@ -12,7 +12,7 @@ export const Sidebar = () => {
   return (
     <aside className="flex h-screen w-full max-w-64 flex-col border-r border-slate-200 bg-white px-4 py-4">
       <div className="mb-6">
-        <h1 className="text-lg font-bold text-brand-800">Cardio-Diabetic HMS</h1>
+        <h1 className="text-lg font-bold text-brand-800">HDCL HMS</h1>
         <p className="text-xs text-slate-500">Patient Record Management</p>
       </div>
 

@@ -131,9 +131,15 @@ export const PatientProfilePage = () => {
       <PatientTabs patientId={id} />
       <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-card">
         <h2 className="mb-2 text-lg font-semibold">Overview</h2>
-        <div className="grid gap-3 text-sm md:grid-cols-3">
+        <div className="grid gap-3 text-sm md:grid-cols-4">
           <p>
             <span className="font-medium text-slate-700">Phone:</span> {patient.phone}
+          </p>
+          <p>
+            <span className="font-medium text-slate-700">Ward No:</span> {patient.wardNumber || '-'}
+          </p>
+          <p>
+            <span className="font-medium text-slate-700">District:</span> {patient.district || '-'}
           </p>
           <p>
             <span className="font-medium text-slate-700">Address:</span> {patient.address || '-'}
